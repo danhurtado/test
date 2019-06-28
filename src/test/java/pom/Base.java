@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.List;
 import java.util.Random;
@@ -21,6 +22,10 @@ public class Base {
         System.setProperty("webdriver.chrome.driver", "C:/gecko/chromedriver.exe");
         driver = new ChromeDriver();
         return driver;
+    }
+
+    public void selectFromDropdown(By locator){
+        Select dropdown = new Select(driver.findElement(locator));
     }
 
     public WebElement findElement(By locator){

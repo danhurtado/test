@@ -25,7 +25,7 @@ public class LoginPage extends Base {
         submit(LoginBtn);
         wait(1);
 
-        assertEquals("WELCOME Tester ",isDisplayed1(TitlePageLocator));
+        assertEquals("WELCOME Tester ",getText(TitlePageLocator));
 
     }
 
