@@ -26,7 +26,7 @@ public class NewInventoryPage extends Base {
         type("ID"+randomInteger(),IDNumber);
         submit(EnterNewItemBtn);
         wait(1);
-        assertTrue(isDisplayed(ConfirmRegistration4));
+        assertTrue(isDisplayed(ConfirmRegistration)); //coment
 
     }
 }
