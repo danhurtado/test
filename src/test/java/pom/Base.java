@@ -24,8 +24,9 @@ public class Base {
         return driver;
     }
 
-    public void selectFromDropdown(By locator){
+    public void selectFromDropdown(By locator, String text){
         Select dropdown = new Select(driver.findElement(locator));
+        dropdown.selectByVisibleText(text);
     }
 
     public WebElement findElement(By locator){

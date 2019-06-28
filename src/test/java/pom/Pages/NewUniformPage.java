@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 import pom.Base;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 public class NewUniformPage extends Base {
 
@@ -14,6 +14,7 @@ public class NewUniformPage extends Base {
     By Color = By.name("color");
     By EnterNewItemBtn = By.xpath("//*[@id=\"item-form\"]/div/div[2]/div[8]/div/div/div/button");
     By ConfirmRegistration = By.xpath("//*[@id=\"growls\"]/div/div[2]");
+    By CategoryDrp = By.id("select-category");
 
     String NEWUNIFORMPAGE = "http://qa.charmsofficetest.com/charms_qa/enteruniform.asp";
 
@@ -22,14 +23,14 @@ public class NewUniformPage extends Base {
     public void AddNewUniform() throws InterruptedException {
         navigateTo(NEWUNIFORMPAGE);
         wait(1);
-        selectFromDropdown();
+        selectFromDropdown(CategoryDrp,"Shirt");
+        wait(1);
         type("ID"+randomInteger(),ItemNumber);
         type("Size: "+randomInteger(),Size);
         type("Color: "+randomInteger(),Color);
-        //submit(EnterNewItemBtn);
         click(EnterNewItemBtn);
         wait(1);
-        //assertTrue(isDisplayed(ConfirmRegistration)); //comment to test
+        assertEquals("Success!",getText(ConfirmRegistration));
         System.out.println(getText(ConfirmRegistration));
 
     }
