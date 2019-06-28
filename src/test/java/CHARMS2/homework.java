@@ -28,7 +28,7 @@ public class homework {
         if(equals=true){
             System.out.println("The statement work = 'Vanco Payments' is: "+equals);
         } else {
-            System.out.println("The statement work = 'Vanco Payments' is: "+equals);
+            System.out.println("The statement work = 'Vanco Payments' is: "+equals); //Test Edg
         }
 
     }
