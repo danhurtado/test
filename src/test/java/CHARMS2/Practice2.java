@@ -9,7 +9,7 @@ public class Practice2 {
         int [] intArray;
         intArray = new int[10];
 
-        for(int i=0;i<5;i++){
+        for(int i=0;i<stringArray.length;i++){
             System.out.println(stringArray[i]);
         }
 
