@@ -1,11 +1,20 @@
 package pom;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+//import org.apache.commons.io.FileUtils;
+
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.Rectangle;
+import java.awt.datatransfer.StringSelection;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
@@ -21,6 +30,7 @@ public class Base {
     public WebDriver chromeDriver(){
         System.setProperty("webdriver.chrome.driver", "C:/gecko/chromedriver.exe");
         driver = new ChromeDriver();
+        //driver.manage().window().maximize();
         return driver;
     }
 
@@ -101,4 +111,50 @@ public class Base {
         return n;
     }
 
+    public void typeInKeyboard(String string) throws AWTException, InterruptedException {
+        wait(1);
+        StringSelection s = new StringSelection(string);
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s, null);
+        Robot robot = new Robot();
+        robot.keyPress(java.awt.event.KeyEvent.VK_ENTER);
+        robot.keyRelease(java.awt.event.KeyEvent.VK_ENTER);
+        robot.keyPress(java.awt.event.KeyEvent.VK_CONTROL);
+        robot.keyPress(java.awt.event.KeyEvent.VK_V);
+        robot.keyRelease(java.awt.event.KeyEvent.VK_CONTROL);
+        //Thread.sleep(3000);
+        wait(1);
+        robot.keyPress(java.awt.event.KeyEvent.VK_ENTER);
+        wait(1);
+    }
+
+    public void scrollToElement(By locator) throws InterruptedException {
+        WebElement element = driver.findElement(locator);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);",element);
+        wait(1);
+    }
+
+    /*public void takeScreenshot(){
+        File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(scrFile, new File("C:\\gecko\\1.png"));
+    }*/
+
+    public void takeScreenshot(String path){
+        try{
+            wait(1);
+            //String timestamp = dateAndTime();
+            BufferedImage image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+            ImageIO.write(image, "png", new File(path+".png"));
+            }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public String dateAndTime(){
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("M-dd-yyyy hh:mm:ss");
+        String strDate = formatter.format(date);
+        strDate = strDate.replace(':', '.');
+        return strDate;
+    }
 }

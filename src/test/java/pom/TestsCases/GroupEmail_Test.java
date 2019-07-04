@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import pom.Pages.GroupEmailPage;
 import pom.Pages.LoginPage;
 
+import java.awt.*;
+
 public class GroupEmail_Test {
 
     private WebDriver driver;
@@ -30,7 +32,7 @@ public class GroupEmail_Test {
     }
 
     @Test
-    public void Test() throws InterruptedException {
+    public void Test() throws InterruptedException, AWTException {
         groupEmailPage = new GroupEmailPage(driver);
         groupEmailPage.OnlyChaperones();
 
