@@ -3,6 +3,7 @@ package pom.Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pom.Base;
+import pom.Config;
 
 import static junit.framework.TestCase.assertEquals;
 
@@ -14,12 +15,15 @@ public class LoginPage extends Base {
     By TitlePageLocator = By.xpath("//h1[@class='h124']");
 
     String LOGINPAGE = "http://qa.charmsofficetest.com/charms_qa/login.asp";
+    //String LOGINPAGE = "/login.asp";
 
     public LoginPage(WebDriver driver) { super(driver); }
 
     public void Login() throws InterruptedException {
+        //public void Login(String environment) throws InterruptedException {
 
         visit(LOGINPAGE);
+        //visit(environment+LOGINPAGE);
         type("tester", UsernameLocator);
         type("password1",PasswordLocator);
         submit(LoginBtn);

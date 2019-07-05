@@ -5,6 +5,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import pom.Config;
 import pom.Pages.LoginPage;
 import pom.Pages.NewUniformPage;
 

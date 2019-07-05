@@ -1,5 +1,9 @@
 package CHARMS2;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 public class Practice3 {
 
     public static void main(String [] args){
@@ -27,5 +31,8 @@ public class Practice3 {
         for(double value : doubleArray){
             System.out.print(value+", ");
         }
+
+
+
     }
 }

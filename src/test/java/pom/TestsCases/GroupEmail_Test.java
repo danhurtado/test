@@ -21,7 +21,8 @@ public class GroupEmail_Test {
     @Before
     public void setUp() throws InterruptedException {
         loginPage = new LoginPage(driver);
-        driver = loginPage.chromeDriver();
+        //driver = loginPage.chromeDriver();
+        driver = loginPage.geckoDriver();
         loginPage.Login();
 
     }
@@ -34,7 +35,10 @@ public class GroupEmail_Test {
     @Test
     public void Test() throws InterruptedException, AWTException {
         groupEmailPage = new GroupEmailPage(driver);
-        groupEmailPage.OnlyChaperones();
+        groupEmailPage.OnlyChaperonesNow();
+        //groupEmailPage.OnlyChaperonesLater6amNoon();
+        //groupEmailPage.OnlyChaperonesLaterNoon6PM();
+        //groupEmailPage.OnlyChaperonesLater6PMMidnight();
 
     }
 }

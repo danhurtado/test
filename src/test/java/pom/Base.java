@@ -4,7 +4,10 @@ package pom;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -14,6 +17,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
@@ -22,6 +26,10 @@ import java.util.concurrent.TimeUnit;
 public class Base {
 
     private WebDriver driver;
+    public static String QA0 = "http://qa.charmsofficetest.com/charms_qa";
+    public static String QA1 = "http://qa.charmsofficetest.com/charms_qa_1";
+    public static String QA2 = "http://qa.charmsofficetest.com/charms_qa_2";
+    public static String PROD = "https://www.charmsoffice.com/charms2";
 
     public Base(WebDriver driver){
         this.driver = driver;
@@ -30,7 +38,14 @@ public class Base {
     public WebDriver chromeDriver(){
         System.setProperty("webdriver.chrome.driver", "C:/gecko/chromedriver.exe");
         driver = new ChromeDriver();
-        //driver.manage().window().maximize();
+        driver.manage().window().maximize();
+        return driver;
+    }
+
+    public WebDriver geckoDriver(){
+        System.setProperty("webdriver.gecko.driver", "C:/gecko/geckodriver.exe");
+        driver = new FirefoxDriver();
+        driver.manage().window().maximize();
         return driver;
     }
 
@@ -85,6 +100,10 @@ public class Base {
         driver.get(url);
     }
 
+    public void clear(By locator){
+        driver.findElement(locator).clear();
+    }
+
     public void navigateTo(String locator){
         driver.navigate().to(locator);
     }
@@ -110,6 +129,27 @@ public class Base {
         //System.out.println(n);
         return n;
     }
+
+    public void typeInKeyboard2(String string) throws AWTException, InterruptedException {
+        wait(1);
+        StringSelection s = new StringSelection(string);
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s, null);
+        Robot robot = new Robot();
+        robot.keyPress(java.awt.event.KeyEvent.VK_ENTER);
+        robot.keyRelease(java.awt.event.KeyEvent.VK_ENTER);
+        robot.keyPress(java.awt.event.KeyEvent.VK_CONTROL);
+        robot.keyPress(java.awt.event.KeyEvent.VK_V);
+        robot.keyRelease(java.awt.event.KeyEvent.VK_CONTROL);
+        wait(1);
+    }
+
+    public void typeEnter() throws AWTException, InterruptedException {
+        Robot robot = new Robot();
+        robot.keyPress(java.awt.event.KeyEvent.VK_ENTER);
+        robot.keyRelease(java.awt.event.KeyEvent.VK_ENTER);
+        wait(1);
+    }
+
 
     public void typeInKeyboard(String string) throws AWTException, InterruptedException {
         wait(1);
@@ -153,8 +193,24 @@ public class Base {
     public String dateAndTime(){
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("M-dd-yyyy hh:mm:ss");
+        //formatter.
         String strDate = formatter.format(date);
         strDate = strDate.replace(':', '.');
         return strDate;
+    }
+
+    public String getTomorrowDate(){
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, 1);
+        String result;
+        result = sdf.format(calendar.getTime());
+        //System.out.print(result);
+        return result;
+    }
+
+    public void waitUntilAppears(int maxTime, By locator){
+        WebDriverWait wait = new WebDriverWait(driver, maxTime);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 }
