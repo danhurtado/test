@@ -6,18 +6,21 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import pom.Config;
 import pom.Pages.LoginPage;
+import pom.Settings;
 
 
 public class Login_Test{
 
     private WebDriver driver;
     LoginPage loginpage;
+    //Config config = new Config(Settings.ENVIRONMENT);
 
 
     @Before
     public void setUp(){
         loginpage = new LoginPage(driver);
-        driver = loginpage.chromeDriver();
+        //driver = loginpage.chromeDriver();
+        driver = loginpage.Browser(Settings.BROWSER);
     }
 
     @After

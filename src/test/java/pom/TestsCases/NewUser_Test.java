@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import pom.Pages.LoginPage;
 import pom.Pages.NewStudentPage;
+import pom.Settings;
 
 public class NewUser_Test {
 
@@ -16,7 +17,7 @@ public class NewUser_Test {
     @Before
     public void setUp() throws InterruptedException {
         loginPage = new LoginPage(driver);
-        driver = loginPage.chromeDriver();
+        driver = loginPage.Browser(Settings.BROWSER);
         loginPage.Login();
 
     }

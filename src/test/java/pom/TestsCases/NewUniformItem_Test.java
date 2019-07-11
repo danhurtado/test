@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import pom.Config;
 import pom.Pages.LoginPage;
 import pom.Pages.NewUniformPage;
+import pom.Settings;
 
 public class NewUniformItem_Test {
 
@@ -20,7 +21,7 @@ public class NewUniformItem_Test {
     @Before
     public void setUp() throws InterruptedException {
         loginPage = new LoginPage(driver);
-        driver = loginPage.chromeDriver();
+        driver = loginPage.Browser(Settings.BROWSER);
         loginPage.Login();
 
     }

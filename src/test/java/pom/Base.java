@@ -5,6 +5,7 @@ package pom;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -26,10 +27,6 @@ import java.util.concurrent.TimeUnit;
 public class Base {
 
     private WebDriver driver;
-    public static String QA0 = "http://qa.charmsofficetest.com/charms_qa";
-    public static String QA1 = "http://qa.charmsofficetest.com/charms_qa_1";
-    public static String QA2 = "http://qa.charmsofficetest.com/charms_qa_2";
-    public static String PROD = "https://www.charmsoffice.com/charms2";
 
     public Base(WebDriver driver){
         this.driver = driver;
@@ -47,6 +44,24 @@ public class Base {
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
         return driver;
+    }
+
+    public WebDriver IEDriver(){
+        System.setProperty("webdriver.ie.driver", "C:/gecko/IEDriverServer.exe");
+        driver = new InternetExplorerDriver();
+        driver.manage().window().maximize();
+        return driver;
+    }
+
+    public WebDriver Browser(String brow){
+        if(brow=="Firefox"){
+            return geckoDriver();
+        } if (brow=="Chrome"){
+            return chromeDriver();
+        }if (brow=="IE"){
+            return IEDriver();
+        } else
+            return geckoDriver();
     }
 
     public void selectFromDropdown(By locator, String text){
@@ -115,6 +130,9 @@ public class Base {
     public void wait(int seconds) throws InterruptedException {
         TimeUnit.SECONDS.sleep(seconds);
     }
+    public void waitInMilliseconds(int milliseconds) throws InterruptedException {
+        TimeUnit.MILLISECONDS.sleep(milliseconds);
+    }
     public String getTextFromTextBox(By locator){
         return driver.findElement(locator).getAttribute("value");
     }
@@ -152,7 +170,7 @@ public class Base {
 
 
     public void typeInKeyboard(String string) throws AWTException, InterruptedException {
-        wait(1);
+        waitInMilliseconds(1400);
         StringSelection s = new StringSelection(string);
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s, null);
         Robot robot = new Robot();
@@ -212,5 +230,13 @@ public class Base {
     public void waitUntilAppears(int maxTime, By locator){
         WebDriverWait wait = new WebDriverWait(driver, maxTime);
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    public String left(String string, int length){
+            return string.substring(0,length);
+    }
+
+    public String right(String string,int largo){
+        return  string.substring(string.length()-largo, string.length());
     }
 }

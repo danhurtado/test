@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import pom.Pages.LoginPage;
 import pom.Pages.NewInventoryPage;
+import pom.Settings;
 
 public class NewInventoryItem_Test {
 
@@ -18,7 +19,7 @@ public class NewInventoryItem_Test {
     @Before
     public void setUp() throws InterruptedException {
         loginPage = new LoginPage(driver);
-        driver = loginPage.chromeDriver();
+        driver = loginPage.Browser(Settings.BROWSER);
         loginPage.Login();
 
     }

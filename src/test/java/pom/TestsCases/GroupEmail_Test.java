@@ -7,13 +7,13 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import pom.Pages.GroupEmailPage;
 import pom.Pages.LoginPage;
+import pom.Settings;
 
 import java.awt.*;
 
 public class GroupEmail_Test {
 
     private WebDriver driver;
-    //NewStudentPage newStudentPage;
     GroupEmailPage groupEmailPage;
 
     LoginPage loginPage;
@@ -22,7 +22,7 @@ public class GroupEmail_Test {
     public void setUp() throws InterruptedException {
         loginPage = new LoginPage(driver);
         //driver = loginPage.chromeDriver();
-        driver = loginPage.geckoDriver();
+        driver = loginPage.Browser(Settings.BROWSER);
         loginPage.Login();
 
     }
@@ -36,9 +36,9 @@ public class GroupEmail_Test {
     public void Test() throws InterruptedException, AWTException {
         groupEmailPage = new GroupEmailPage(driver);
         groupEmailPage.OnlyChaperonesNow();
-        //groupEmailPage.OnlyChaperonesLater6amNoon();
-        //groupEmailPage.OnlyChaperonesLaterNoon6PM();
-        //groupEmailPage.OnlyChaperonesLater6PMMidnight();
+        groupEmailPage.OnlyChaperonesLater6amNoon();
+        groupEmailPage.OnlyChaperonesLaterNoon6PM();
+        groupEmailPage.OnlyChaperonesLater6PMMidnight();
 
     }
 }

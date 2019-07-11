@@ -3,6 +3,9 @@ package pom.Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pom.Base;
+import pom.Config;
+import pom.Settings;
+
 import java.awt.*;
 import static org.junit.Assert.assertEquals;
 
@@ -30,7 +33,11 @@ public class GroupEmailPage extends Base {
     By ConfirmEmailSent1 = By.xpath("//*[@id=\"growls\"]/div/div[2]");
     By ConfirmEmailSent2 = By.xpath("//*[@id=\"growls\"]/div[2]/div[2]");
 
-    String GroupEmailPath = "http://qa.charmsofficetest.com/charms_qa/groupemail.asp";
+
+    Config config = new Config(Settings.ENVIRONMENT);
+    String GroupEmailPath = config.url+"/groupemail.asp";
+
+
     String timestamp1, timestamp2, timestamp3;
     String CCmails = "daniel.hurtado@vancopayments.com";
 
