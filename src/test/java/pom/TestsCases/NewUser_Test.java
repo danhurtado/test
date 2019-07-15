@@ -24,7 +24,7 @@ public class NewUser_Test {
 
     @After
     public void tearDown(){
-        //driver.quit();
+        loginPage.closeConection();
     }
 
     @Test

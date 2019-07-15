@@ -4,6 +4,7 @@ package pom;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -46,11 +47,18 @@ public class Base {
         return driver;
     }
 
-    public WebDriver IEDriver(){
-        System.setProperty("webdriver.ie.driver", "C:/gecko/IEDriverServer.exe");
-        driver = new InternetExplorerDriver();
+    public WebDriver edgeDriver(){
+
+        System.setProperty("webdriver.edge.driver", "C:/gecko/MicrosoftWebDriver.exe");
+        //System.setProperty("webdriver.edge.driver", "C:/gecko/msedgedriver.exe"); //msedge
+        driver = new EdgeDriver();
         driver.manage().window().maximize();
         return driver;
+    }
+
+    public void closeConection(){
+        if(Settings.CLOSECONECTION == true)
+            driver.quit();
     }
 
     public WebDriver Browser(String brow){
@@ -58,8 +66,8 @@ public class Base {
             return geckoDriver();
         } if (brow=="Chrome"){
             return chromeDriver();
-        }if (brow=="IE"){
-            return IEDriver();
+        }if (brow=="EDGE"){
+            return edgeDriver();
         } else
             return geckoDriver();
     }
@@ -170,7 +178,7 @@ public class Base {
 
 
     public void typeInKeyboard(String string) throws AWTException, InterruptedException {
-        waitInMilliseconds(1400);
+        waitInMilliseconds(1500);
         StringSelection s = new StringSelection(string);
         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s, null);
         Robot robot = new Robot();

@@ -130,7 +130,7 @@ public class GroupEmailPage extends Base {
         }
         waitUntilAppears(10,ConfirmEmailSent2);
         assertEquals("Success!",getText(ConfirmEmailSent2));
-        wait(3);
+        wait(5);
     }
 
     public void OnlyChaperonesLaterNoon6PM() throws InterruptedException, AWTException {
@@ -177,7 +177,7 @@ public class GroupEmailPage extends Base {
         }
         waitUntilAppears(10,ConfirmEmailSent2);
         assertEquals("Success!",getText(ConfirmEmailSent2));
-        wait(3);
+        wait(5);
     }
 
     public void OnlyChaperonesLater6PMMidnight() throws InterruptedException, AWTException {
@@ -224,6 +224,6 @@ public class GroupEmailPage extends Base {
         }
         waitUntilAppears(10,ConfirmEmailSent2);
         assertEquals("Success!",getText(ConfirmEmailSent2));
-        wait(3);
+        wait(5);
     }
 }

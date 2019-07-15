@@ -26,7 +26,7 @@ public class NewInventoryItem_Test {
 
     @After
     public void tearDown(){
-        //driver.quit();
+        loginPage.closeConection();
     }
 
     @Test

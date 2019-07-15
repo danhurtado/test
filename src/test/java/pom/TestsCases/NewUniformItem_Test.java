@@ -28,7 +28,7 @@ public class NewUniformItem_Test {
 
     @After
     public void tearDown(){
-        //driver.quit();
+        loginPage.closeConection();
     }
 
     @Test

@@ -4,6 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
+import pom.Base;
 import pom.Config;
 import pom.Pages.LoginPage;
 import pom.Settings;
@@ -26,6 +27,8 @@ public class Login_Test{
     @After
     public void tearDown(){
         //driver.quit();
+        loginpage.closeConection();
+
     }
 
     @Test

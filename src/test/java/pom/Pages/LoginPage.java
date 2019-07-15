@@ -38,5 +38,4 @@ public class LoginPage extends Base {
 
     }
 
-
 }
