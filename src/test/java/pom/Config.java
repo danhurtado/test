@@ -1,6 +1,6 @@
 package pom;
 
-import org.graalvm.compiler.asm.sparc.SPARCAssembler;
+//import org.graalvm.compiler.asm.sparc.SPARCAssembler;
 
 public class Config {
 
