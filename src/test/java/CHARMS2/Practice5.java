@@ -7,14 +7,14 @@ public class Practice5 {
         int [] numbers = {1,2,3,4,5,6,7,8,9,10};
         int oddSum = 0;
         int evenSum = 0;
-        int i=0;
+        //int i=0;
         for(int num : numbers){
-            if(numbers[i] % 2 == 0){
-                oddSum = oddSum+numbers[i];
+            if(num % 2 != 0){
+                oddSum = oddSum+num;
             } else {
-                evenSum = evenSum + numbers[i];
+                evenSum = evenSum + num;
             }
-            i++;
+            //i++;
         }
         System.out.println("The sum of all even numbers is "+evenSum+" and the sum of all  odd numbers is "+oddSum);
 
