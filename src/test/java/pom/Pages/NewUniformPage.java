@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import pom.Base;
+import pom.Config;
+import pom.Settings;
 
 import static org.junit.Assert.assertEquals;
 
@@ -16,14 +18,16 @@ public class NewUniformPage extends Base {
     By ConfirmRegistration = By.xpath("//*[@id=\"growls\"]/div/div[2]");
     By CategoryDrp = By.id("select-category");
 
-    String NEWUNIFORMPAGE = "http://qa.charmsofficetest.com/charms_qa/enteruniform.asp";
+    Config config = new Config(Settings.ENVIRONMENT);
+    String NEWUNIFORMPAGE = config.url+"/enteruniform.asp";
 
     public NewUniformPage(WebDriver driver) { super(driver); }
 
     public void AddNewUniform() throws InterruptedException {
         navigateTo(NEWUNIFORMPAGE);
         wait(1);
-        selectFromDropdown(CategoryDrp,"Shirt");
+        //selectFromDropdown(CategoryDrp,"Shirt");
+        selectFromDropdownByIndex(CategoryDrp,2);
         wait(1);
         type("ID"+randomInteger(),ItemNumber);
         type("Size: "+randomInteger(),Size);

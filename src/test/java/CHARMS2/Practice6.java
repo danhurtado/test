@@ -54,9 +54,11 @@ public class Practice6 {
             value = value - (value % 10);
             value = value / 10;
         }
-
         sum = sum + value;
+
         return sum;
     }
+
+    //public static double
 
 }

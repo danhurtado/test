@@ -77,6 +77,12 @@ public class Base {
         dropdown.selectByVisibleText(text);
     }
 
+    public void selectFromDropdownByIndex(By locator, int index){
+        Select dropdown = new Select(driver.findElement(locator));
+        //dropdown.selectByVisibleText(text);
+        dropdown.selectByIndex(index);
+    }
+
     public WebElement findElement(By locator){
         return driver.findElement(locator);
     }
