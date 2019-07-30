@@ -6,10 +6,10 @@ import pom.TestsCases.*;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
-        //Login_Test.class,
-        //NewUser_Test.class,
-        //NewInventoryItem_Test.class,
-        //NewUniformItem_Test.class,
+        Login_Test.class,
+        NewUser_Test.class,
+        NewInventoryItem_Test.class,
+        NewUniformItem_Test.class,
         GroupEmail_Test.class
 })
 

@@ -32,19 +32,6 @@ public class GroupEmail_Test {
         loginPage.closeConection();
     }
 
-    /*@Test
-    public void Test() throws InterruptedException, AWTException {
-        groupEmailPage = new GroupEmailPage(driver);
-        groupEmailPage.OnlyChaperonesNow();
-        groupEmailPage.OnlyChaperonesLater6amNoon();
-        groupEmailPage.OnlyChaperonesLaterNoon6PM();
-        groupEmailPage.OnlyChaperonesLater6PMMidnight();
-        groupEmailPage.OnlyHelpersNow();
-        groupEmailPage.OnlyHelpersLater6amNoon();
-        groupEmailPage.OnlyHelpersLaterNoon6PM();
-        groupEmailPage.OnlyHelpersLater6PMMidnight();
-    }*/
-
     @Test
     public void OnlyChaperonesNow() throws InterruptedException, AWTException {
         groupEmailPage = new GroupEmailPage(driver);
@@ -92,4 +79,105 @@ public class GroupEmail_Test {
         groupEmailPage = new GroupEmailPage(driver);
         groupEmailPage.OnlyHelpersLater6PMMidnight();
     }
+
+    @Test
+    public void OnlyContactsFirstTypeNow() throws InterruptedException, AWTException {
+        groupEmailPage = new GroupEmailPage(driver);
+        groupEmailPage.OnlyContactsFirstTypeNow();
+    }
+
+    @Test
+    public void OnlyContactsFirstTypeLater6amNoon() throws InterruptedException, AWTException {
+        groupEmailPage = new GroupEmailPage(driver);
+        groupEmailPage.OnlyContactsFirstTypeLater6amNoon();
+    }
+
+    @Test
+    public void OnlyContactsFirstTypeLaterNoon6PM() throws InterruptedException, AWTException {
+        groupEmailPage = new GroupEmailPage(driver);
+        groupEmailPage.OnlyContactsFirstTypeLaterNoon6PM();
+    }
+
+    @Test
+    public void OnlyContactsFirstTypeLater6PMMidnight() throws InterruptedException, AWTException {
+        groupEmailPage = new GroupEmailPage(driver);
+        groupEmailPage.OnlyContactsFirstTypeLater6PMMidnight();
+    }
+
+    @Test
+    public void OnlyTeachersPeriod1Now() throws InterruptedException, AWTException {
+        groupEmailPage = new GroupEmailPage(driver);
+        groupEmailPage.OnlyTeachersPeriod1Now();
+    }
+
+    @Test
+    public void OnlyTeachersPeriod1Later6amNoon() throws InterruptedException, AWTException {
+        groupEmailPage = new GroupEmailPage(driver);
+        groupEmailPage.OnlyTeachersPeriod1Later6amNoon();
+    }
+
+    @Test
+    public void OnlyTeachersPeriod1LaterNoon6PM() throws InterruptedException, AWTException {
+        groupEmailPage = new GroupEmailPage(driver);
+        groupEmailPage.OnlyTeachersPeriod1LaterNoon6PM();
+    }
+
+    @Test
+    public void OnlyTeachersPeriod1Later6PMMidnight() throws InterruptedException, AWTException {
+        groupEmailPage = new GroupEmailPage(driver);
+        groupEmailPage.OnlyTeachersPeriod1Later6PMMidnight();
+    }
+
+    @Test
+    public void OnlyAlumniNow() throws InterruptedException, AWTException {
+        groupEmailPage = new GroupEmailPage(driver);
+        groupEmailPage.OnlyAlumniNow();
+    }
+
+    @Test
+    public void OnlyAlumniLater6amNoon() throws InterruptedException, AWTException {
+        groupEmailPage = new GroupEmailPage(driver);
+        groupEmailPage.OnlyAlumniLater6amNoon();
+    }
+
+    @Test
+    public void OnlyAlumniLaterNoon6PM() throws InterruptedException, AWTException {
+        groupEmailPage = new GroupEmailPage(driver);
+        groupEmailPage.OnlyAlumniLaterNoon6PM();
+    }
+
+    @Test
+    public void OnlyAlumniLater6PMMidnight() throws InterruptedException, AWTException {
+        groupEmailPage = new GroupEmailPage(driver);
+        groupEmailPage.OnlyAlumniLater6PMMidnight();
+    }
+
+    @Ignore
+    @Test
+    public void All() throws InterruptedException, AWTException {
+        groupEmailPage = new GroupEmailPage(driver);
+        /*
+        groupEmailPage.OnlyChaperonesNow();
+        groupEmailPage.OnlyChaperonesLater6amNoon();
+        groupEmailPage.OnlyChaperonesLaterNoon6PM();
+        groupEmailPage.OnlyChaperonesLater6PMMidnight();
+        groupEmailPage.OnlyHelpersNow();
+        groupEmailPage.OnlyHelpersLater6amNoon();
+        groupEmailPage.OnlyHelpersLaterNoon6PM();
+        groupEmailPage.OnlyHelpersLater6PMMidnight();
+        groupEmailPage.OnlyContactsFirstTypeNow();
+        groupEmailPage.OnlyContactsFirstTypeLater6amNoon();
+        groupEmailPage.OnlyContactsFirstTypeLaterNoon6PM();
+        groupEmailPage.OnlyContactsFirstTypeLater6PMMidnight();
+        groupEmailPage.OnlyTeachersPeriod1Now();
+        groupEmailPage.OnlyTeachersPeriod1Later6amNoon();
+        groupEmailPage.OnlyTeachersPeriod1LaterNoon6PM();
+        groupEmailPage.OnlyTeachersPeriod1Later6PMMidnight();
+        */
+        groupEmailPage.OnlyAlumniNow();
+        groupEmailPage.OnlyAlumniLater6amNoon();
+        groupEmailPage.OnlyAlumniLaterNoon6PM();
+        groupEmailPage.OnlyAlumniLater6PMMidnight();
+    }
+
 }

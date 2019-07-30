@@ -1,6 +1,9 @@
 package pom.Resources;
 
 import java.util.Properties;
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 public class UIOperation {
@@ -31,6 +34,19 @@ public class UIOperation {
             case "NAVIGATETO":
                 driver.navigate().to(p.getProperty(value));
                 break;
+            case "SUBMIT":
+                driver.findElement(this.getObject(p,objectName,objectType)).submit();
+                break;
+            case "WAIT":
+                TimeUnit.MILLISECONDS.sleep(Integer.parseInt(p.getProperty(value)));
+                break;
+            case "TYPERANDOM":
+                Random rand = new Random();
+                int n = rand.nextInt(100000);
+
+                //System.out.println(n);
+                driver.findElement(this.getObject(p,objectName,objectType)).sendKeys(Integer.toString(n));
+                break;
             default:
                 break;
         }
@@ -49,6 +65,11 @@ public class UIOperation {
         if(objectType.equalsIgnoreCase("XPATH")){
 
             return By.xpath(p.getProperty(objectName));
+        }
+        else if(objectType.equalsIgnoreCase("ID")){
+
+            return By.id(p.getProperty(objectName));
+
         }
         //find by class
         else if(objectType.equalsIgnoreCase("CLASSNAME")){

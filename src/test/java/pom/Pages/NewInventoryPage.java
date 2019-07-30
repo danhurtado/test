@@ -3,6 +3,8 @@ package pom.Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pom.Base;
+import pom.Config;
+import pom.Settings;
 
 import static org.junit.Assert.assertTrue;
 
@@ -14,7 +16,8 @@ public class NewInventoryPage extends Base {
     By EnterNewItemBtn = By.name("form1");
     By ConfirmRegistration = By.xpath("//div[@class=\"alert alert-success\"]");
 
-    String NEWINVENTORYPAGE = "http://qa.charmsofficetest.com/charms_qa/enterinventory.asp";
+    Config config = new Config(Settings.ENVIRONMENT);
+    String NEWINVENTORYPAGE = config.url+"/enterinventory.asp";
 
     public NewInventoryPage(WebDriver driver) { super(driver); }
 

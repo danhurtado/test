@@ -3,6 +3,8 @@ package pom.Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pom.Base;
+import pom.Config;
+import pom.Settings;
 
 import static org.junit.Assert.assertEquals;
 
@@ -16,7 +18,8 @@ public class NewStudentPage extends Base {
     By BtnAddStudent = By.xpath("//*[@id=\"main\"]/div/form/div/div[2]/div[2]/button");
     By AssignedStudentID = By.xpath("//*[@id=\"main\"]/div/div[3]/div[2]/div/div/div/span[1]/strong");
 
-    String ADDNEWSTUDENTPAGE = "http://qa.charmsofficetest.com/charms_qa/addnewstudent.asp";
+    Config config = new Config(Settings.ENVIRONMENT);
+    String ADDNEWSTUDENTPAGE = config.url+"/addnewstudent.asp";
 
     public NewStudentPage(WebDriver driver) { super(driver); }
 
