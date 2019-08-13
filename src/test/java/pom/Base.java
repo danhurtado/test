@@ -34,14 +34,18 @@ public class Base {
     }
 
     public WebDriver chromeDriver(){
-        System.setProperty("webdriver.chrome.driver", "C:/gecko/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+
+                "\\src\\test\\java\\pom\\Webdrivers\\chromedriver.exe");
+
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         return driver;
     }
 
     public WebDriver geckoDriver(){
-        System.setProperty("webdriver.gecko.driver", "C:/gecko/geckodriver.exe");
+        //System.setProperty("webdriver.gecko.driver", "C:/gecko/geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+
+                "\\src\\test\\java\\pom\\Webdrivers\\geckodriver.exe");
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
         return driver;
@@ -49,8 +53,10 @@ public class Base {
 
     public WebDriver edgeDriver(){
 
-        System.setProperty("webdriver.edge.driver", "C:/gecko/MicrosoftWebDriver.exe");
-        //System.setProperty("webdriver.edge.driver", "C:/gecko/msedgedriver.exe"); //msedge
+        //System.setProperty("webdriver.edge.driver", "C:/gecko/MicrosoftWebDriver.exe");
+        System.setProperty("webdriver.edge.driver", System.getProperty("user.dir")+
+                "\\src\\test\\java\\pom\\Webdrivers\\MicrosoftWebDriver.exe");
+
         driver = new EdgeDriver();
         driver.manage().window().maximize();
         return driver;
